@@ -1,18 +1,23 @@
 import React, { useState} from "react";
 import {validateEmail} from '../../Utilidades/validador';
+import { useNavigate } from 'react-router-dom';
+
 
 const Login = () =>{
 
     const[email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [emailError, setEmailError] = useState('');
+    
+    const navigate = useNavigate();
 
     const handleSubmit = (e) =>{
         
         e.preventDefault();
         console.log("submit", {email, password});
-        if(validateEmail(email) == true){
+        if(validateEmail(email) === true){
             console.log("usuario logeado");
+            navigate('/home');
         }else{
             console.log("usuario invalido");
         }
@@ -53,7 +58,7 @@ const Login = () =>{
                 </label></label></div>
             <div className="flex items-baseline justify-between">
               <button className="px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900">Login</button>
-              <a href="#" className="text-sm text-blue-600 hover:underline">Forgot password?</a>
+              <a href="#top" className="text-sm text-blue-600 hover:underline">Forgot password?</a>
             </div>
           </div>
         </form>

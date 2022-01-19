@@ -3,7 +3,6 @@ import {
     BrowserRouter as Router,
     Route,
     Routes, 
-    Navegate
 } from "react-router-dom";
 
 import Login from "./Components/Login/Login";
